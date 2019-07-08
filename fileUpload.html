@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+    <title>file</title>
+</head>
+<body>
+    <input type="file" id="file">
+    <script>
+        $("#file").on("change",function(e){
+            var formData = new FormData();
+                formData.append('file', $('#file')[0].files[0]); // 固定格式
+                $.ajax({        
+                    url:"https://ul.xueleyun.com/upload",
+                    type:"POST",
+                    data:formData,
+                    processData:false,
+                    contentType:false,
+                    success:function(data){
+                        console.log(data);
+                    },
+                    fail:function(data){
+                        console.log(data);
+                    }
+                });
+        })
+    </script>
+</body>
+</html>
