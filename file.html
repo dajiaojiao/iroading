@@ -24,14 +24,19 @@
         let file = new File([ia],{
             type: 'image/png',
         });
-        // var base = URL.createObjectURL(file);ok!!!
-        var fr = new FileReader();
-        fr.onload = function(e){
-            var base = this.result;
-            var imgBase64 = document.querySelector("#imgBase64");
-            imgBase64.setAttribute("src",base);
+        var base = URL.createObjectURL(file);
+        imgBase64.setAttribute("src",base);//ok!!!
+        imgBase64.onload = function(){
+            console.log("bbbb")
+            URL.revokeObjectURL(base);
         }
-        fr.readAsDataURL(file);
+        // var fr = new FileReader();
+        // fr.onload = function(e){
+        //     var base = this.result;
+        //     var imgBase64 = document.querySelector("#imgBase64");
+        //     imgBase64.setAttribute("src",base);//ok!!!
+        // }
+        // fr.readAsDataURL(file);
         
         
     </script>
