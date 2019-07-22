@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var file = new File(["哈哈，傻逼看看为什么要数组"], "aa.txt", {
+            type: 'text/plain'
+        });
+        var file2 = new File([file,"你瞅啥"],"aa2.txt",{
+            type:'text/plain'
+        })
+        console.log(file,file2,file == file2);
+        var fileReader = new FileReader();
+        fileReader.onload = function (evt) {
+            var text = evt.target.result;
+            console.log(1,text);
+        }
+        fileReader.readAsText(file,"utf-8");
+        var fileReader2 = new FileReader();
+        fileReader2.onload = function (evt) {
+            var text = evt.target.result;
+            console.log(2,text);
+        }
+        fileReader2.readAsText(file2,"utf-8");
+
+    </script>
+</body>
+
+</html>

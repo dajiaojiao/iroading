@@ -14,13 +14,13 @@
 
         $("#file").on("change",function(e){
             var formData = new FormData();
-            reader.onload = function(e){
-                console.log(e.target.result);
-            }
+            // reader.onload = function(e){
+            //     console.log(e.target.result);
+            // }
             // reader.readAsBinaryString($('#file')[0].files[0]);
-            reader.readAsArrayBuffer($('#file')[0].files[0]);
+            // reader.readAsArrayBuffer($('#file')[0].files[0]);
             
-            // formData.append('Filedata', $('#file')[0].files[0]); // 固定格式
+            formData.append('file', $('#file')[0].files[0]); // 固定格式
             $.ajax({        
                 url:"https://ul.xueleyun.com/upload",
                 type:"POST",

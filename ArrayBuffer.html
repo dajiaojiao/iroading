@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var ab = new ArrayBuffer(1)
+        var iA = new Int8Array(ab);
+        iA[0] = 97
+        iA[1] = 98
+        console.log(iA);
+        
+        var blob = new Blob([iA], { type: "application/octet-binary" });
+        var fr = new FileReader();
+        fr.addEventListener("load", function (ev) {
+            console.log(ev.target.result);//会输出字符：a
+        });
+        fr.readAsText(blob)
+
+    </script>
+</body>
+
+</html>
