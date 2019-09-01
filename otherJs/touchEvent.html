@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>touchEvent</title>
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            background: #0ff;
+        }
+
+        #father {
+            width: 500px;
+            height: 500px;
+            background: #000;
+        }
+
+        #child {
+            width: 100px;
+            height: 100px;
+            background: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="father">
+        <li id="child"></li>
+    </ul>
+    <script>
+        // document.addEventListener("pointerenter",function(e){
+        //     console.log(e);
+        //     document.body.innerText = JSON.stringify(e.path);
+        // })    
+        var father = document.querySelector("#father");
+        var child = document.querySelector("#child");
+
+
+        // enterLeave();
+        overOut();
+
+        /*
+            顺序：fatherEnter
+                childEnter
+                childLeave
+                fatherLeave
+        */
+        function enterLeave() {
+            father.addEventListener("mouseenter", function (e) {
+                console.log("fatherEnter");
+            })
+            child.addEventListener("mouseenter", function () {
+                console.log("childEnter");
+            })
+            father.addEventListener("mouseleave", function (e) {
+                console.log("fatherLeave");
+            })
+            child.addEventListener("mouseleave", function () {
+                console.log("childLeave");
+            })
+        }
+        /*
+            顺序：同时进：childOver
+                fatherOver
+                childOut
+                fatherOut
+                fatherOver
+                fatherOut
+
+            先进父后进子：
+            fatherOver
+            fatherOut
+            childOver
+            fatherOver
+            childOut
+            fatherOut
+            fatherOver
+            fatherOut
+        */
+        function overOut() {
+            father.addEventListener("mouseover", function (e) {
+                console.log("fatherOver");
+            })
+            child.addEventListener("mouseover", function () {
+                console.log("childOver");
+            })
+            father.addEventListener("mouseout", function (e) {
+                console.log("fatherOut");
+            })
+            child.addEventListener("mouseout", function () {
+                console.log("childOut");
+            })
+        }
+    </script>
+</body>
+
+</html>

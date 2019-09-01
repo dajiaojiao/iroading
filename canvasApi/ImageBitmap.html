@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canvasd" width="500" height="500"></canvas>
+    <script>
+        var canvas = document.querySelector("#canvasd");
+        var cxt = canvas.getContext("2d");
+        var img = new Image();
+        img.onload = function(evt){
+            console.log(evt);
+            // window.createImageBitmap(img)
+            // .then((response) => {
+            //     console.log(response);
+            //     cxt.drawImage(response,0,0,200,200);
+            // })
+            cxt.drawImage(img,0,0,img.naturalWidth,img.naturalHeight);
+            var imgData = cxt.getImageData(0, 0, canvas.width, canvas.height);
+            console.log(imgData);
+            var length = imgData.data.length;
+            for(let index = 0;index < length - 2;index ++){
+                imgData.data[index] = imgData.data[index] ^ 255;
+                imgData.data[index + 1] = imgData.data[index + 1] ^ 255;
+                imgData.data[index + 2] = imgData.data[index + 2] ^ 255;
+            }
+            cxt.fillColor = "#000";
+            cxt.fillRect(0,0,300,300);
+            cxt.putImageData(imgData,0,0);//重置canvas像素信息，所以之前画的黑色的填充矩形没了。
+        }    
+        img.src = "./images/animal.png";
+    </script>
+</body>
+</html>
