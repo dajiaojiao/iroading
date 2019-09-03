@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>flash文件</title>
+</head>
+
+<body>
+    <!-- "https://dl.xueleyun.com/files/aa43fb4e42b420aa851fed47159e3e09.swf" -->
+    <div id="flashBox">
+        <object crossorigin="anonymous" id="flasha" class="flash-animate" align="middle"
+            type="application/x-shockwave-flash" width="800" height="450" data="../media/flash1.swf"
+            style="background-color: rgb(0, 0, 0);">
+            <param name="allowScriptAccess" value="always" />
+            <param name="wmode" value="opaque">
+            <param name="quality" value="high">
+        </object>
+    </div>
+
+    <input id="start" type="button" value="开始">
+    <input id="pause" type="button" value="暂停">
+    <script>
+        var a = document.querySelector("#flasha");
+        var start = document.querySelector("#start");
+        var pause = document.querySelector("#pause");
+        start.onclick = function (event) {
+            a.style.display =
+                a.Play()
+        }
+        pause.onclick = function (event) {
+            a.StopPlay()
+        }
+
+    </script>
+</body>
+
+</html>
