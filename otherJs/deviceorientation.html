@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>deviceorientation测试</title>
+</head>
+
+<body>
+    <h5 id="data">此处是数据</h5>
+
+    <script>
+        var dataDom = document.getElementById("data");
+        window.addEventListener("deviceorientation", function (event) {
+            var str = "陀螺仪动了<br/>";
+            str += "beta:" + event.beta + "<br/>";
+            str += "alpha:" + event.alpha + "<br/>";
+            str += "gamma:" + event.gamma + "<br/>";
+            dataDom.innerHTML = str;
+
+        })    
+    </script>
+</body>
+
+</html>
