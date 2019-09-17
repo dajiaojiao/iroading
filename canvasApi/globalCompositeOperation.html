@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>globalCompositeOperation</title>
+</head>
+<body>
+    <canvas width="500" height="500" id="da"></canvas>
+    <script>
+        /*
+            globalCompositeOperation值为
+            source-over
+            source-in
+            source-out
+            source-atop
+
+            destination-over
+            destination-in
+            destination-out
+            destination-atop
+
+            copy
+            xor
+            multiply
+        
+        */
+        const canvas = document.querySelector("#da");
+        const context = canvas.getContext("2d");
+            context.fillStyle="blue";
+			context.fillRect(50,50,100,100);
+			context.globalCompositeOperation="multiply"
+			context.fillStyle="red";
+			context.fillRect(100,100,100,100);
+    </script>
+</body>
+</html>
