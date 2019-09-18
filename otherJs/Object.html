@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Object</title>
+</head>
+
+<body>
+    <script>
+        /*
+           1. Object.defineProperty(obj,prop,{
+                value:...,
+                writable:boolean,//可写；
+                configurable:boolean,
+                enumerable:boolean,
+                get:function(){reuturn ...};
+                set:function(){}
+            })
+            value/writable和get/set是不能共存的；
+
+            get和set还有另一种写法：
+            var myObject = {
+                get a() {
+                    return this._a_;
+                },
+                set a(val) {
+                    this._a_ = val * 2;
+                }
+            };
+
+            2. Object.preventExtensions(obj);//禁止对象扩展（禁止添加新属性）；
+
+            3. Object.seal(obj);//密封对象；现有对象上调用Object.preventExtensions(..) 并把所有现有属性标记为 configurable:false。密封之后不仅不能添加新属性，也不能重新配置或者删除任何现有属性（虽然可以
+修改属性的值）。
+
+            4. Object.freeze(obj);//这个方法实际上会在一个现有对象上调用Object.seal(..) 并把所有“数据访问”属性标记为 writable:false，这样就无法修改它们
+的值。
+            5. Object.keys(..) 会返回一个数组，包含所有可枚举属性，Object.getOwnPropertyNames(..)
+会返回一个数组，包含所有属性，无论它们是否可枚举。
+        */
+
+    </script>
+</body>
+
+</html>
