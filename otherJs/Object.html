@@ -39,7 +39,7 @@
             4. Object.freeze(obj);//这个方法实际上会在一个现有对象上调用Object.seal(..) 并把所有“数据访问”属性标记为 writable:false，这样就无法修改它们
 的值。
             5. Object.keys(..) 会返回一个数组，包含所有可枚举属性，Object.getOwnPropertyNames(..)
-会返回一个数组，包含所有属性，无论它们是否可枚举。
+会返回一个数组，包含所有属性，无论它们是否可枚举。Object.getOwnPropertySymbols(...)获取symbol属性；Reflect.ownKeys() ==Object.getOwnPropertyNames() + Object.getOwnPropertySymbols()
         */
 
     </script>
