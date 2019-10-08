@@ -15,11 +15,13 @@
 </head>
 
 <body style="touch-action: none">
+    <p id="info" style="position: absolute;left:0;top:0;"></p>
     <div id="container">
         <canvas id="imageView" width="800" height="500">
         </canvas>
     </div>
     <script type="text/javascript">
+        var a = document.querySelector("#info");
         var canvas;
         var context;
         var tool;
@@ -101,13 +103,15 @@
              */
             this.pointermove = function (ev) {
                 counter++;
-
+                // a.innerHTML += "move开始" + Date.now() + ";"
                 if (tool.started) {
                     // context.arc(ev._x,ev._y);
                     // context.arcTo()
                     context.lineTo(ev._x, ev._y);
                     context.stroke();
                 }
+                // a.innerHTML += "move结束" + Date.now() + "<br/>"
+
             };
 
             /**
@@ -129,9 +133,9 @@
          */
         function ev_canvas(ev) {
             var x, y;
-            if (ev.offsetX || ev.offsetY == 0) {
-                ev._x = ev.offsetX;
-                ev._y = ev.offsetY;
+            if (ev.pageX || ev.pageY == 0) {
+                ev._x = ev.pageX;
+                ev._y = ev.pageY;
             }
 
             /**
