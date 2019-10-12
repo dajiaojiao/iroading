@@ -14,11 +14,14 @@
     <script>
         var dataDom = document.getElementById("data");
         window.addEventListener("deviceorientation", function (event) {
-            var str = "陀螺仪动了<br/>";
-            str += "beta:" + event.beta + "<br/>";
-            str += "alpha:" + event.alpha + "<br/>";
-            str += "gamma:" + event.gamma + "<br/>";
-            dataDom.innerHTML = str;
+            // var str = "陀螺仪动了<br/>";
+            // str += "beta:" + event.beta + "<br/>";
+            // str += "alpha:" + event.alpha + "<br/>";
+            // str += "gamma:" + event.gamma + "<br/>";
+            // dataDom.innerHTML = str;
+
+            var str = dataDom.innerHTML;
+            
 
         })    
     </script>

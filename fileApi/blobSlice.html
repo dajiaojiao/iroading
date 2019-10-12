@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BlobSlice</title>
+</head>
+
+<body>
+    <script>
+        function strToBlob(str) {
+            var i, l, d, array;
+            d = str;
+            l = d.length;
+            array = new Uint8Array(l);
+            for (var i = 0; i < l; i++) {
+                array[i] = d.charCodeAt(i);
+            }
+            var b = new Blob([array], { type: 'text/plain' });
+            return b;
+        };
+        function readBlob(blob) {
+            var reader = new FileReader();
+            reader.onload = function () {
+                console.log(this.result);
+            }
+            reader.readAsText(blob);
+        }
+        var file = new Blob(["哈哈，看看切割行不行，哈哈哈大大大，的"], {
+            type: 'text/plain'
+        });
+        var size = file.size;
+        var file1 = file.slice(0, size / 2, "text/plain");
+        var file2 = file.slice(size / 2, size + 1, "text/plain");
+        var file3 = new Blob([file1,file2],{
+            type: 'text/plain'
+        })
+        readBlob(file1);//哈哈，看看切割行不�
+        readBlob(file2);//��，哈哈哈大大大，的
+        readBlob(file3);//哈哈，看看切割行不行，哈哈哈大大大，的
+    </script>
+</body>
+
+</html>
