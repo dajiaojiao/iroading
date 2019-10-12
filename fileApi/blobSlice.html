@@ -21,25 +21,49 @@
             var b = new Blob([array], { type: 'text/plain' });
             return b;
         };
-        function readBlob(blob) {
+        function readBlobStr(blob) {
             var reader = new FileReader();
             reader.onload = function () {
                 console.log(this.result);
             }
             reader.readAsText(blob);
         }
+        function readBlobBinary(blob) {
+            var reader = new FileReader();
+            var promise = new Promise((resolve, reject) => {
+                reader.onload = function () {
+                    resolve(this.result);
+                }
+            })
+            reader.readAsBinaryString(blob);
+            return promise;
+        }
+       
+        async function handleBlob(blob) {
+            var size = blob.size;
+            var file1 = blob.slice(0, size / 2, "text/plain");
+            var file2 = blob.slice(size / 2, size + 1, "text/plain");
+            //发送；
+            var file1Str = await readBlobBinary(file1);
+            var file2Str = await readBlobBinary(file2);
+            // 接收
+            var file1Bob = strToBlob(file1Str);
+            var file2Blob = strToBlob(file2Str);
+            var fileEnd = new Blob([file1Bob, file2Blob], {
+                type: 'text/plain'
+            })
+
+
+            readBlobStr(file1Bob);//哈哈，看看切割行不�
+            readBlobStr(file2Blob);//��，哈哈哈大大大，的
+            readBlobStr(fileEnd);//哈哈，看看切割行不行，哈哈哈大大大，的
+        }
+
         var file = new Blob(["哈哈，看看切割行不行，哈哈哈大大大，的"], {
             type: 'text/plain'
         });
-        var size = file.size;
-        var file1 = file.slice(0, size / 2, "text/plain");
-        var file2 = file.slice(size / 2, size + 1, "text/plain");
-        var file3 = new Blob([file1,file2],{
-            type: 'text/plain'
-        })
-        readBlob(file1);//哈哈，看看切割行不�
-        readBlob(file2);//��，哈哈哈大大大，的
-        readBlob(file3);//哈哈，看看切割行不行，哈哈哈大大大，的
+        handleBlob(file);
+
     </script>
 </body>
 
