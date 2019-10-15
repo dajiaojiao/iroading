@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        #tittle{
+            color: aqua;
+            font-size: 20px;
+        }
+        #liBox{
+            width: 300px;
+            height: 200px;
+            color: red;
+        }
+        #liBox li{
+            float: left;
+        }
+        #h1Text{
+            color: bisque;
+            background: #000;
+            width: 400px;
+            position: absolute;
+            left: 100px;
+            top: 300px;
+        }
+    </style>
+    <title>svg 屏幕截图</title>
+</head>
+
+<body>
+    <div id="domBox">
+        <div id="tittle">瞎写的呃呃呃呃呃</div>
+        <ul id="liBox">
+            <li>瞎写的呃呃呃呃呃1</li>
+            <li>瞎写的呃呃呃呃呃2</li>
+            <li>瞎写的呃呃呃呃呃3</li>
+        </ul>
+        <h1 id="h1Text">瞎写的呃呃呃呃呃</h1>
+    </div>
+    <button id="startClip">开始截图</button>
+    <img id="clipImg" src="" alt="截取的dom">
+    <!-- <img src="" alt=""> -->
+    <svg id="svgBox" xmlns="http://www.w3.org/2000/svg">
+        <foreignObject width="120" height="50">
+            
+          </foreignObject>
+      </svg>
+    <canvas id="canvasDom" width="1000" height="1000"></canvas>
+
+    <script>
+        const svgBox = document.querySelector("#svgBox");
+        const domBox = document.querySelector("#domBox");
+        const canvasDom = document.querySelector("#canvasDom");
+        const startClip = document.querySelector("#startClip");
+        const clipImg = document.querySelector("#clipImg");
+        const context = canvasDom.getContext("2d");
+        startClip.onclick = function(){
+            console.log("开始截图");
+            svgBox.innerHTML = "";
+            svgBox.appendChild(domBox);
+            var str = svgBox.outerHTML;
+            clipImg.src = "data:image/svg+xml;utf8," + encodeURIComponent(str);
+            // "data:image/svg+xml;utf8," + encodeURIComponent(this.svgString)
+        }
+        
+
+    </script>
+</body>
+
+</html>

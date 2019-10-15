@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>function</title>
+</head>
+
+<body>
+    <script>
+        (function () {
+            console.log(namec);
+            if (typeof namec == 'undefined') {
+                namec = 'Jack';
+                console.log('Goodbye ' + namec);
+            } else {
+                console.log('Hello ' + namec);
+            }
+        })();
+        var namec = 'Tom';
+
+
+
+        // var named = 'Tom';
+        // (function named() {
+        //     console.log(named);//function named...
+        //     if (typeof named == 'undefined') {
+        //         named = 'Jack';
+        //         console.log('Goodbye ' + named);
+        //     } else {
+        //         console.log('Hello ' + named);
+        //     }
+        // })();
+        // console.log(name)//Tom
+
+        // console.log(ab);//function ab..
+        // function ab(){};
+        // console.log(ab);//function ab..
+        // var ab = 2;
+        // console.log(ab)//2
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Proxy</title>
+</head>
+
+<body>
+    <script>
+        var obj = { b: 3 };
+        var aa = function(){};
+        var p = new Proxy(aa, {
+            get(target, name) {
+                console.log(target, name);
+                return 4;
+            },
+            construct() {
+                console.log("construct");
+                return {b:3};
+            }
+        })
+        // var a = Reflect.get(obj, "b");
+        // console.log(a);
+        // var b = p.b;
+        // console.log(b);
+        // var c = new p;
+        // console.log(c);
+        var c = Reflect.construct(aa,[]);
+        console.log(c)
+    </script>
+</body>
+
+</html>
