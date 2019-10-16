@@ -10,20 +10,30 @@
 
 <body>
     <script>
-        (function () {
-            console.log(namec);
-            if (typeof namec == 'undefined') {
-                namec = 'Jack';
-                console.log('Goodbye ' + namec);
-            } else {
-                console.log('Hello ' + namec);
-            }
-        })();
-        var namec = 'Tom';
+        //1.
+        //  (function () {
+        //     console.log(name);
+        //     if (typeof name == 'undefined') {
+        //         namec = 'Jack';
+        //         console.log('Goodbye ' + name);
+        //     } else {
+        //         console.log('Hello ' + name);
+        //     }
+        // })();
+        // var name = 'Tom';
+        // 2.
+        // console.log(name);
+        // var name;
+        // console.log(name)
+        // 3.
+        // window.a = "333";
+        // var a;
+        // console.log(a,window.a);
 
 
 
-        // var named = 'Tom';
+        //2.
+        //  var named = 'Tom';
         // (function named() {
         //     console.log(named);//function named...
         //     if (typeof named == 'undefined') {
@@ -35,12 +45,52 @@
         // })();
         // console.log(name)//Tom
 
+        // 3. 
         // console.log(ab);//function ab..
         // function ab(){};
         // console.log(ab);//function ab..
         // var ab = 2;
         // console.log(ab)//2
 
+
+
+        // 4.
+        // console.log(name);//ƒ name(){console.log('cc');}
+        // console.log(age);//ƒ age(){console.log(18);}
+        // var name = 'cc';
+        // function age() {
+        //     console.log(18);
+        // }
+        // function name() {
+        //     console.log('cc');
+        // }
+        // 5.
+        // var b = 10;
+        // (function b() {
+        //     b = 20;
+        //     console.log(b);//function b...
+        // })();
+        // 6.
+        // var c = 3;
+        // (function c(){
+        //     c = 222;
+        //     console.log(c);
+        // })()
+        // console.log(c);
+        // 7.
+        var a = function b() {
+            console.log(b);//function b...
+            b = 3;
+            console.log(b);//function b...
+        };
+        a();
+        // 8.
+        var a = function b() {
+            console.log(b);//undefine;
+            var b = 3;
+            console.log(b);//3
+        };
+        a();
     </script>
 </body>
 

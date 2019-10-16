@@ -13,15 +13,23 @@
 
     <script>
         var dataDom = document.getElementById("data");
+        let diffObj = { diffBeta: 0, diffAlpha: 0, diffGamma: 0, beta: 0, alpha: 0, gamma: 0 };
         window.addEventListener("deviceorientation", function (event) {
-            // var str = "陀螺仪动了<br/>";
-            // str += "beta:" + event.beta + "<br/>";
-            // str += "alpha:" + event.alpha + "<br/>";
-            // str += "gamma:" + event.gamma + "<br/>";
-            // dataDom.innerHTML = str;
 
-            var str = dataDom.innerHTML;
-            
+            diffObj.diffBeta = Math.abs(event.beta - diffObj.beta);
+            diffObj.diffAlpha = Math.abs(event.alpha - diffObj.alpha);
+            diffObj.diffGamma = Math.abs(event.gamma - diffObj.gamma);
+
+            diffObj.beta = event.beta;
+            diffObj.alpha = event.alpha;
+            diffObj.gamma = event.gamma;
+
+            if (diffObj.diffBeta >= 5 || diffObj.diffAlpha >= 5) {
+                var str = dataDom.innerHTML;
+                str += diffObj.diffBeta + ";<br/>" + diffObj.diffAlpha + ";<br/>" + diffObj.diffGamma + ";" + "<br/><br/>";
+                dataDom.innerHTML = str;
+            }
+
 
         })    
     </script>
