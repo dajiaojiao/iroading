@@ -11,7 +11,7 @@
 <body>
     <script>
         var b;
-        // async function a(){
+        //1. async function a(){
         //     b = new Promise(resolve => {
         //         setTimeout(resolve,3000)
         //     })
@@ -26,21 +26,58 @@
         // c.then(_ => {console.log("c执行")})
 
 
-        Promise.resolve(3)
-        .then(data => {
-            console.log(data);
-            return 4
-        })
-        .then(data => {
-            console.log(data);
-            return 5
-        })
-        .then(data => {
-            console.log(data);
-            return 6
-        })
-        console.log(7);
-        setTimeout(function(){console.log(8)},0)//73458
+        //2. Promise.resolve(3)
+        // .then(data => {
+        //     console.log(data);
+        //     return 4
+        // })
+        // .then(data => {
+        //     console.log(data);
+        //     return 5
+        // })
+        // .then(data => {
+        //     console.log(data);
+        //     return 6
+        // })
+        // console.log(7);
+        // setTimeout(function(){console.log(8)},0)//73458
+
+
+        //3.
+        // async function a(){
+        //     console.log(222);
+        //     let b = new Promise(resolve => {
+        //         setTimeout(function(){resolve("hhh")},1000);
+        //     })
+        //     b.then(_ => {
+        //         console.log(555);
+        //         return 3
+        //     })
+        //     .then(res => {
+        //         console.log(res);
+        //         return 6
+        //     })
+        //     return b;
+        // }
+        // async function c(){
+        //     let d = await a();
+        //     console.log(2,d);
+        // }
+        // c();
+        // console.log(111);
+
+
+        async function b() {
+
+            return value
+        }
+        function b() {
+            return Promise.resolve()
+                .then(function () {
+                    return value
+                })
+        }
+
 
     </script>
 </body>
