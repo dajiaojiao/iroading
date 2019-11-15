@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Promise</title>
+</head>
+
+<body>
+    <script>
+        var b;
+        // async function a(){
+        //     b = new Promise(resolve => {
+        //         setTimeout(resolve,3000)
+        //     })
+        //     b.abort = function(){console.log(4)};
+        //     return b;
+        // }
+        // var c = a();
+        // console.log(b == c);
+        // console.log("b",b);
+        // console.log("c",c);
+        // b.then(_ => {console.log("b执行")})
+        // c.then(_ => {console.log("c执行")})
+
+
+        Promise.resolve(3)
+        .then(data => {
+            console.log(data);
+            return 4
+        })
+        .then(data => {
+            console.log(data);
+            return 5
+        })
+        .then(data => {
+            console.log(data);
+            return 6
+        })
+        console.log(7);
+        setTimeout(function(){console.log(8)},0)//73458
+
+    </script>
+</body>
+
+</html>
