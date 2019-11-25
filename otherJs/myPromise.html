@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function MyPromise(callBack){
+            this.successCallBack = null;
+            this.failCallBack = null;
+            this.status = "pending";
+            this.successData = null;
+            this.errorData = null;
+        
+            callBack((data) => {
+                this.successData = data;
+                this.resolveFunc(data);
+            },(data) =>{
+                this.errorData = data;
+                this.rejectFunc(data);
+            });
+        }    
+        MyPromise.prototype.resolveFunc = function(data){
+            if(this.successCallBack){
+                this.successCallBack(data);
+                this.status = "resolved";
+            }
+        }
+        MyPromise.prototype.rejectFunc = function(data){
+            if(this.failCallBack){
+                this.failCallBack(data);
+                this.status = "rejected";
+            }
+        }
+        MyPromise.prototype.then = function(success,fail){
+            let result = null;
+            if(this.successData){
+                result = success(this.successData);
+            }else if(this.errorData){
+                result = fail(this.errorData);
+            }
+            this.successCallBack = success;
+            this.failCallBack = fail;
+            if(result instanceof MyPromise){
+                return result;
+            }else{
+                return MyPromise.resolve(result);
+            }
+
+        }
+        MyPromise.resolve = function(data){
+            return new MyPromise(function(resolve,reject){
+                resolve(data);
+            });
+        };
+        MyPromise.reject = function(data){
+            return new MyPromise(function(resolve,reject){
+                reject(data);
+            });
+        };
+
+        var b = MyPromise.resolve(3)
+        .then(function(data){
+            console.log(data)
+            return 4
+        })
+        .then(function(data){
+            console.log(data);
+            return MyPromise.reject("失败顶顶顶顶")
+        })
+        .then(function(data){console.log("成功",data)},function(data){console.log("失败",data)})
+        console.log(b)
+    </script>
+</body>
+</html>
