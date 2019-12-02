@@ -14,19 +14,28 @@
             this.status = "pending";
             this.successData = null;
             this.errorData = null;
-        
+            this.hasCallSuccess = false;
+            this.hasCallfail = false;
+            this.nextCall = null;
             callBack((data) => {
+                this.hasCallSuccess = true;
                 this.successData = data;
                 this.resolveFunc(data);
             },(data) =>{
+                this.hasCallfail = true;
                 this.errorData = data;
                 this.rejectFunc(data);
             });
         }    
         MyPromise.prototype.resolveFunc = function(data){
             if(this.successCallBack){
-                this.successCallBack(data);
+                const result = this.successCallBack(data);
                 this.status = "resolved";
+                if(result instanceof MyPromise){
+                    result.then((data)=>{this.nextCall(data)})
+                }else{
+                    this.nextCall(result);
+                }
             }
         }
         MyPromise.prototype.rejectFunc = function(data){
@@ -36,21 +45,28 @@
             }
         }
         MyPromise.prototype.then = function(success,fail){
-            let result = null;
-            if(this.successData){
-                result = success(this.successData);
-            }else if(this.errorData){
-                result = fail(this.errorData);
-            }
-            this.successCallBack = success;
-            this.failCallBack = fail;
-            if(result instanceof MyPromise){
-                return result;
-            }else{
-                return MyPromise.resolve(result);
-            }
+            return new MyPromise((resolve,reject) => {
+                let result = void(0);
+                this.successCallBack = success;
+                this.failCallBack = fail;
+                if(this.hasCallSuccess){
+                    result = this.successCallBack(this.successData);
+                }else if(this.hasCallfail){
+                    result = this.failCallBack(this.errorData);
+                }
 
+                if(this.hasCallSuccess || this.hasCallfail){
+                    if(result instanceof MyPromise){
+                        result.then(function(data){resolve(data)});
+                    }else{
+                        resolve(result);
+                    }
+                }else{
+                    this.nextCall = resolve;
+                }
+            })
         }
+
         MyPromise.resolve = function(data){
             return new MyPromise(function(resolve,reject){
                 resolve(data);
@@ -62,17 +78,27 @@
             });
         };
 
-        var b = MyPromise.resolve(3)
-        .then(function(data){
-            console.log(data)
-            return 4
+        new MyPromise(function(resolve,reject){
+            setTimeout(function(){
+                resolve("3333")
+            },1000)
         })
         .then(function(data){
-            console.log(data);
-            return MyPromise.reject("失败顶顶顶顶")
+            console.log(data,"第一次");
+            return new MyPromise(function(resolve,reject){
+                resolve("444")
+            })
         })
-        .then(function(data){console.log("成功",data)},function(data){console.log("失败",data)})
-        console.log(b)
+        .then(function(data){
+            console.log(data,"第二次");
+            return new MyPromise((resolve) => {
+                setTimeout(function(){resolve("5555")},3000)
+            })
+        })
+        .then(function(data){
+            console.log(data,"第三次")
+        })
+        
     </script>
 </body>
 </html>
