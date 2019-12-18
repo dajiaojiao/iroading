@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./downCourseware.css">
+    <title>下载课件弹框</title>
+</head>
+<body>
+    <div id="downCourseware">
+        <!-- 选择器入口 -->
+        <div id="selectEnterPanel" class="panelStyle">
+            <p class="panelHead">
+                <span class="tittle">人民的力量</span>
+                <span class="whatDo">离线能干什么？</span>
+            </p>
+            <div id="downContent" class="panelContent diyScrollBar">
+                <div id=downQuestions class="resourseType">
+                    <p class="downResourseHead">
+                        <span class="tittle">题库下载</span>
+                        <span class="addResourse">添加</span>
+                    </p>
+                    <p class="noResource">尚未添加题目</p>
+                    <ul id="questionsBox">
+                        <li class="quetionInfo"><span class="questionType">多选题</span><span class="questionNumber">13</span></li>
+                        <li class="quetionInfo"><span class="questionType">填空题</span><span class="questionNumber">13</span></li>
+                    </ul>
+                </div>
+                <div id="downWorks" class="resourseType">
+                    <p class="downResourseHead">
+                        <span class="tittle">作业下载</span>
+                        <span class="addResourse">添加</span>
+                    </p>
+                    <p class="noResource">尚未添加作业</p>
+                    <ul class="worksBox" id="selectedWorksBox">
+                        <li class="workInfo">
+                            <span class="workTittle">课堂练习·3题</span>
+                            <span class="workContent">今天这次练习的内容是关于你对人民的力量的理解</span>
+                            <span class="submitInfo">已交：0/36</span>
+                            <div class="deleteWork"><span>×</span></div>
+                        </li>
+                        <li class="workInfo">
+                            <span class="workTittle">课堂练习预布置·3题</span>
+                            <span class="workContent">今天这次练习的内容是关于你对人民的力量的理解</span>
+                            <span class="submitInfo">已交：0/36</span>
+                            <div class="deleteWork"><span>×</span></div>
+                        </li>
+                        <li class="workInfo">
+                            <span class="workTittle">课堂练习预布置·3题</span>
+                            <span class="workContent">今天这次练习的内容是关于你对人民的力量的理解</span>
+                            <span class="submitInfo">已交：0/36</span>
+                            <div class="deleteWork"><span>×</span></div>
+                        </li>
+                    </ul>
+                </div>
+                <div id="downSubjectTools" class="resourseType">
+                    <p class="downResourseHead">
+                        <span class="tittle">学科工具</span>
+                        <span class="addResourse">添加</span>
+                    </p>
+                    <p class="noResource">尚未添加学科工具</p>
+                    <div id="subjectToolBox">
+                        <dl class="subjectToolInfo">
+                            <dt class="subjectToolTittle">化学实验：</dt>
+                            <dd class="subjectTools">
+                                <ul>
+                                    <li class="subjectTool"><span class="toolName">锥形瓶</span><div class="deleteTool"><span>×</span></div></li>
+                                    <li class="subjectTool"><span class="toolName">锥形瓶锥形瓶</span><div class="deleteTool"><span>×</span></div></li>
+                                    <li class="subjectTool"><span class="toolName">锥形瓶</span><div class="deleteTool"><span>×</span></div></li>
+                                    <li class="subjectTool"><span class="toolName">锥形瓶</span><div class="deleteTool"><span>×</span></div></li>
+                                    <li class="subjectTool"><span class="toolName">锥形瓶</span><div class="deleteTool"><span>×</span></div></li>
+                                    <li class="subjectTool"><span class="toolName">锥形瓶</span><div class="deleteTool"><span>×</span></div></li>
+                                    <li class="subjectTool"><span class="toolName">锥形瓶</span><div class="deleteTool"><span>×</span></div></li>
+                                    <li class="subjectTool"><span class="toolName">锥形瓶</span><div class="deleteTool"><span>×</span></div></li>
+
+                                </ul>
+                            </dd>
+                        </dl>
+                        <dl class="subjectToolInfo">
+                            <dt class="subjectToolTittle">物理实验：</dt>
+                            <dd class="subjectTools">
+                                <ul>
+                                    <li class="subjectTool"><span class="toolName">锥形瓶</span><div class="deleteTool"><span>×</span></div></li>
+
+                                </ul>
+                            </dd>
+                        </dl>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="panelFoot">
+                <button class="cancel" id="cancelDownload">取消</button>
+                <button class="confirm" id="confirmDownload">确认下载</button>
+            </div>
+        </div>
+        <!-- 题库下载选择 -->
+        <div id="selectQuestions" class="panelStyle">
+            <p class="panelHead">
+                <span class="tittle">题库下载选择</span>
+            </p>
+            <div id="questionsContent" class="panelContent">
+                <div class="hideScrollBar">
+                    <ul class="selectOptions diyScrollBar">
+                        <li class="selectOption"><span class="questionType">全部题目</span><span class="questionNum">106</span></li>
+                        <li class="selectOption"><span class="questionType">判断题</span><span class="questionNum">06</span></li>
+                        <li class="selectOption"><span class="questionType">判断题</span><span class="questionNum">16</span></li>
+                        <li class="selectOption"><span class="questionType">判断题</span><span class="questionNum">16</span></li>
+                        <li class="selectOption"><span class="questionType">判断题</span><span class="questionNum">16</span></li>
+                        <li class="selectOption"><span class="questionType">判断题</span><span class="questionNum">16</span></li>
+                        <li class="selectOption"><span class="questionType">判断题</span><span class="questionNum">16</span></li>
+
+                    </ul>
+                </div>
+                <div id="questionsContains" class="diyScrollBar">
+                    <div id="selfQuestions" class="singleQuestions">
+                        <p class="questionTypeTittle">我的题库</p>
+                        <p class="noneQuestions">该题库暂无此题型题目</p>
+                        <ul class="singleQuestionsBox">
+                            <li class="questionInfoBox">
+                                <input class="normalCheckBox" type="checkbox" id="selectQuestion1">
+                                <div class="questionInfo">
+                                    <p class="questionType">1.主观题</p>
+                                    <div class="questionContent">如图所示为一电流随时间变化的图象．该电流的有如图所示为一电流随时间变化的图象</div>
+                                    <div class="audioBox">
+                                        <span class="playBtn"></span>
+                                        <span class="playTime">2"</span>
+                                        <span class="wifiIcon"></span>
+                                        <audio src="https://dl.xueleyun.com/files/acace8f9b44c499b92e0f3e0c0d4f83d.mp3"></audio>
+                                    </div>
+                                    <ul class="fileList">
+                                        <li class="fileInfo">
+                                            <p class="fileBigIcon"></p>
+                                            <p class="fileNameIcon">
+                                                <span class="fileSmallIcon txtResource"></span>
+                                                <span class="fileName">电流的...规则</span>
+                                            </p>
+                                        </li>
+                                        <li class="fileInfo">
+                                            <p class="fileBigIcon hasImg"></p>
+                                            <p class="fileNameIcon">
+                                                <span class="fileSmallIcon"></span>
+                                                <span class="fileName">电流的...规则</span>
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <label for="selectQuestion1"></label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="xueleQuestions" class="singleQuestions">
+                        <p class="questionTypeTittle">学乐题库</p>
+                        <p class="noneQuestions">该题库暂无此题型题目</p>
+                        <ul class="singleQuestionsBox">
+                            <li class="questionInfoBox">
+                                <input class="normalCheckBox" type="checkbox" id="selectQuestion1">
+                                <div class="questionInfo">
+                                    <p class="questionType">1.主观题</p>
+                                    <div class="questionContent">如图所示为一电流随时间变化的图象．该电流的有如图所示为一电流随时间变化的图象</div>
+                                    <div class="audioBox">
+                                        <span class="playBtn"></span>
+                                        <span class="playTime">2"</span>
+                                        <span class="wifiIcon"></span>
+                                        <audio src="https://dl.xueleyun.com/files/acace8f9b44c499b92e0f3e0c0d4f83d.mp3"></audio>
+                                    </div>
+                                    <ul class="fileList">
+                                        <li class="fileInfo">
+                                            <p class="fileBigIcon"></p>
+                                            <p class="fileNameIcon">
+                                                <span class="fileSmallIcon txtResource"></span>
+                                                <span class="fileName">电流的...规则</span>
+                                            </p>
+                                        </li>
+                                        <li class="fileInfo">
+                                            <p class="fileBigIcon hasImg"></p>
+                                            <p class="fileNameIcon">
+                                                <span class="fileSmallIcon"></span>
+                                                <span class="fileName">电流的...规则</span>
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <label for="selectQuestion1"></label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="panelFoot">
+                <button class="cancel" id="cancelAddQuestions">返回</button>
+                <button class="confirm" id="confirmAddQuestions">确认添加</button>
+            </div>
+        </div>
+        <!-- 作业下载选择 -->
+        <div id="selectWorks"  class="panelStyle">
+            <div class="panelHead">
+                <span class="tittle">题库下载选择</span>
+                <button id="selectWorkType" class="active">
+                    <span id="workTypeName">全部作业</span><span class="tabAngel"></span>
+                </button>                
+                <ul id="workTypes">
+                    <li class="workType">全部作业</li>
+                    <li class="workType">教辅作业</li>
+                    <li class="workType">AI堂堂清</li>
+                    <li class="workType">作业</li>
+                    <li class="workType">课堂练习</li>
+                    <li class="workType">课外作业</li>
+                    <li class="workType">翻转课堂</li>
+                    <li class="workType">答题卡</li>
+                    <li class="workType">课堂练习预布置</li>
+                </ul>
+            </div>
+            <div id="worksContent" class="panelContent">
+                <ul id="toSelectWorksBox" class="worksBox diyScrollBar">
+                    <li class="workInfoBox">
+                        <span class="workTime">12-04  12:00</span>
+                        <p class="workInfo">
+                            <span class="workTittle">课堂练习·3题</span>
+                            <span class="workContent">今天这次练习的内容是关于你对人民的力量的理解</span>
+                            <span class="submitInfo">已交：0/36</span>
+                        </p>
+                    </li>
+                    <li class="workInfoBox">
+                        <span class="workTime">12-04  12:00</span>
+                        <p class="workInfo">
+                            <span class="workTittle">课堂练习·3题</span>
+                            <span class="workContent">今天这次练习的内容是关于你对人民的力量的理解</span>
+                            <span class="submitInfo">已交：0/36</span>
+                        </p>
+                    </li>
+                    <li class="workInfoBox">
+                        <span class="workTime">12-04  12:00</span>
+                        <p class="workInfo">
+                            <span class="workTittle">课堂练习·3题</span>
+                            <span class="workContent">今天这次练习的内容是关于你对人民的力量的理解</span>
+                            <span class="submitInfo">已交：0/36</span>
+                        </p>
+                    </li>
+                    <li class="workInfoBox">
+                        <span class="workTime">12-04  12:00</span>
+                        <p class="workInfo">
+                            <span class="workTittle">课堂练习·3题</span>
+                            <span class="workContent">今天这次练习的内容是关于你对人民的力量的理解</span>
+                            <span class="submitInfo">已交：0/36</span>
+                        </p>
+                    </li>
+                    <li class="workInfoBox">
+                        <span class="workTime">12-04  12:00</span>
+                        <p class="workInfo">
+                            <span class="workTittle">课堂练习·3题</span>
+                            <span class="workContent">今天这次练习的内容是关于你对人民的力量的理解</span>
+                            <span class="submitInfo">已交：0/36</span>
+                        </p>
+                    </li>
+                    <li class="workInfoBox">
+                        <span class="workTime">12-04  12:00</span>
+                        <p class="workInfo">
+                            <span class="workTittle">课堂练习·3题</span>
+                            <span class="workContent">今天这次练习的内容是关于你对人民的力量的理解</span>
+                            <span class="submitInfo">已交：0/36</span>
+                        </p>
+                    </li>
+                    <li class="workInfoBox">
+                        <span class="workTime">12-04  12:00</span>
+                        <p class="workInfo">
+                            <span class="workTittle">课堂练习·3题</span>
+                            <span class="workContent">今天这次练习的内容是关于你对人民的力量的理解</span>
+                            <span class="submitInfo">已交：0/36</span>
+                        </p>
+                    </li>
+                    <li class="workInfoBox">
+                        <span class="workTime">12-04  12:00</span>
+                        <p class="workInfo">
+                            <span class="workTittle">课堂练习·3题</span>
+                            <span class="workContent">今天这次练习的内容是关于你对人民的力量的理解</span>
+                            <span class="submitInfo">已交：0/36</span>
+                        </p>
+                    </li>
+                    <li class="workInfoBox">
+                        <span class="workTime">12-04  12:00</span>
+                        <p class="workInfo">
+                            <span class="workTittle">课堂练习·3题</span>
+                            <span class="workContent">今天这次练习的内容是关于你对人民的力量的理解</span>
+                            <span class="submitInfo">已交：0/36</span>
+                        </p>
+                    </li>
+                    <li class="workInfoBox">
+                        <span class="workTime">12-04  12:00</span>
+                        <p class="workInfo">
+                            <span class="workTittle">课堂练习·3题</span>
+                            <span class="workContent">今天这次练习的内容是关于你对人民的力量的理解</span>
+                            <span class="submitInfo">已交：0/36</span>
+                        </p>
+                    </li>
+                    <li class="workInfoBox">
+                        <span class="workTime">12-04  12:00</span>
+                        <p class="workInfo">
+                            <span class="workTittle">课堂练习·3题</span>
+                            <span class="workContent">今天这次练习的内容是关于你对人民的力量的理解</span>
+                            <span class="submitInfo">已交：0/36</span>
+                        </p>
+                    </li>
+                </ul>
+                <div class="noneWorks">
+                    <p class="noneWorkImg"></p>
+                    <p class="noneWorkText">暂无作业可下载</p>
+                </div>
+            </div>
+            <div class="panelFoot">
+                <button class="cancel" id="cancelAddWorks">返回</button>
+                <button class="confirm" id="confirmAddWorks">确认添加</button>
+            </div>
+        </div>
+        <!-- 学科工具选择 -->
+        <div id="selecSubjectTools"  class="panelStyle">
+            <div class="panelHead">
+                <span class="tittle">学科工具选择</span>
+            </div>
+            <div id="subjectToolContent" class="panelContent">
+                <p class="selectTools">
+                    <button class="selectedTool"><span class="selectedToolText">化学实验</span><span class="selectAngel"></span></button>
+                    <button class="selectedTool"><span class="selectedToolText">反应仪器</span><span class="selectAngel"></span></button>
+                </p>
+                
+                <div id="toSelectTools" class="toolListBox">
+                    <p class="selectToolText"><span>可选 </span><span id="toSelectToolNum">6</span></p>
+                    <ul class="selectToolBox diyScrollBar" id="toSelectToolBox">
+                        <li class="subjectToolName">名字很长的化学仪器叫化学</li>
+                        <li class="subjectToolName">名字很长的化学仪器叫化学</li>
+                        <li class="subjectToolName">名字很长的化学仪器叫化学</li>
+                        <li class="subjectToolName">名字很长的化学仪器叫化学</li>
+                        <li class="subjectToolName">名字很长的化学仪器叫化学</li>
+                        <li class="subjectToolName">名字很长的化学仪器叫化学</li>
+                        <li class="subjectToolName">名字很长的化学仪器叫化学</li>
+                        <li class="subjectToolName">名字很长的化学仪器叫化学</li>
+                        <li class="subjectToolName">名字很长的化学仪器叫化学</li>
+                        <li class="subjectToolName">名字很长的化学仪器叫化学</li>
+                        <li class="subjectToolName">名字很长的化学仪器叫化学</li>
+                        <li class="subjectToolName">名字很长的化学仪器叫化学</li>
+                    </ul>
+                </div>
+                <p class="verticalLine"></p>
+                <div id="selectedTools" class="toolListBox">
+                    <p class="selectToolText"><span>已选 </span><span id="selectedToolNum">6</span></p>
+                    <ul class="selectToolBox diyScrollBar" id="selectedToolBox">
+                        <li class="subjectToolName">名字很长的化学仪器叫化学</li>
+                        <li class="subjectToolName">名字很长的化学仪器叫化学</li>
+                         <li class="subjectToolName">名字很长的化学仪器叫化学</li>
+                        <li class="subjectToolName">名字很长的化学仪器叫化学</li>
+                        <li class="subjectToolName">名字很长的化学仪器叫化学</li>
+                        <li class="subjectToolName">名字很长的化学仪器叫化学</li>
+                        <li class="subjectToolName">名字很长的化学仪器叫化学</li>
+                        <li class="subjectToolName">名字很长的化学仪器叫化学</li>
+                        <li class="subjectToolName">名字很长的化学仪器叫化学</li>
+                        <li class="subjectToolName">名字很长的化学仪器叫化学</li>
+
+                    </ul>
+                </div>
+                <ul id="toolTypes" class="selectTab">
+                    <li class="angleSelectOption">化学实验</li>
+                    <li class="angleSelectOption">物理实验</li>
+                    <li class="angleSelectOption">函数工具</li>
+                    <li class="angleSelectOption">几何工具</li>
+                </ul>
+                <ul id="experiments" class="selectTab">
+                    <li class="angleSelectOption">反应仪器</li>
+                    <li class="angleSelectOption">组合仪器</li>
+                    <li class="angleSelectOption">辅助仪器</li>
+                    <li class="angleSelectOption">计量仪器</li>
+                    <li class="angleSelectOption">氧气</li>
+                    <li class="angleSelectOption">氢气</li>
+                    <li class="angleSelectOption">燃料与燃烧</li>
+                    <li class="angleSelectOption">水和溶液</li>
+                    <li class="angleSelectOption">金属酸碱盐</li>
+                </ul>
+            </div>
+            <div class="panelFoot">
+                <button class="cancel" id="cancelAddWorks">返回</button>
+                <button class="confirm" id="confirmAddWorks">确认添加</button>
+            </div>
+        </div>
+        <div id="whatCanDo">
+            <button class="closeCanDo">×</button>
+        </div>
+    </div>
+</body>
+</html>

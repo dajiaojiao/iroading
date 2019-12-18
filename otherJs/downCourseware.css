@@ -1,0 +1,181 @@
+body,
+html {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  background: cadetblue;
+}
+ul,
+li,
+dl,
+dt,
+dd,
+p,
+button,
+input {
+  padding: 0;
+  margin: 0;
+}
+button {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+ul,
+li {
+  list-style: none;
+}
+#downCourseware {
+  font-size: 16px;
+  color: #212121;
+  font-weight: 500;
+  -moz-user-select: none;
+  /*火狐*/
+  -webkit-user-select: none;
+  /*webkit浏览器*/
+  -ms-user-select: none;
+  /*IE10*/
+  -khtml-user-select: none;
+  /*早期浏览器*/
+  user-select: none;
+  cursor: default;
+}
+#downCourseware .diyScrollBar::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+  background-color: transparent;
+}
+#downCourseware .diyScrollBar::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #B3B3B3;
+}
+#downCourseware .diyScrollBar::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+#downCourseware .panelStyle {
+  width: 800px;
+  background: #ffffff;
+}
+#downCourseware .panelStyle .panelHead {
+  position: relative;
+  height: 80px;
+  padding: 0 27px 0 32px;
+  line-height: 80px;
+  box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.16);
+}
+#downCourseware .panelStyle .panelHead .tittle {
+  font-size: 22px;
+  float: left;
+}
+#downCourseware .panelStyle .panelContent {
+  overflow: auto;
+  padding-top: 30px;
+  box-sizing: content-box;
+  position: relative;
+}
+#downCourseware .panelStyle .panelFoot {
+  padding-right: 27px;
+  height: 64px;
+  box-shadow: 0px -2px 8px 0px rgba(0, 0, 0, 0.16);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+#downCourseware .panelStyle .panelFoot .cancel {
+  width: 120px;
+  height: 32px;
+  border: 1px solid #228aff;
+  border-radius: 16px;
+  color: #228AFF;
+  font-size: 14px;
+  margin-right: 24px;
+}
+#downCourseware .panelStyle .panelFoot .confirm {
+  width: 120px;
+  height: 32px;
+  background: #228aff;
+  border-radius: 16px;
+  color: #fff;
+  font-size: 14px;
+}
+#downCourseware .worksBox {
+  padding-top: 10px;
+}
+#downCourseware .worksBox .workInfo {
+  height: 42px;
+  line-height: 42px;
+  background: #f5f5f5;
+  border-radius: 4px;
+  padding-left: 18px;
+  position: relative;
+  margin-bottom: 12px;
+}
+#downCourseware .worksBox .workInfo .workTittle,
+#downCourseware .worksBox .workInfo .workContent,
+#downCourseware .worksBox .workInfo .submitInfo,
+#downCourseware .worksBox .workInfo .deleteWork {
+  display: block;
+  float: left;
+  height: 100%;
+}
+#downCourseware .worksBox .workInfo .workTittle {
+  height: 100%;
+  width: 180px;
+  margin-right: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#downCourseware .worksBox .workInfo .workContent {
+  font-size: 13px;
+  color: #999;
+  line-height: 43px;
+  width: 380px;
+  margin-right: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#downCourseware .worksBox .workInfo .submitInfo {
+  font-size: 13px;
+  font-weight: 500;
+  color: #999;
+}
+#downCourseware .worksBox .workInfo .deleteWork {
+  float: right;
+  width: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+#downCourseware .worksBox .workInfo .deleteWork span {
+  display: block;
+  width: 14px;
+  height: 14px;
+  line-height: 14px;
+  text-align: center;
+  border-radius: 50%;
+  background: #999;
+  color: #ffffff;
+  font-size: 12px;
+}
+#downCourseware #whatCanDo {
+  width: 526px;
+  height: 308px;
+  background: url(../images/downCourseware/whatCanDo.png) no-repeat center / contain;
+  position: relative;
+}
+#downCourseware #whatCanDo .closeCanDo {
+  width: 34px;
+  height: 34px;
+  line-height: 34px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.6);
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  font-size: 30px;
+}
