@@ -1,0 +1,38 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+html,body{
+    width: 100%;
+    height:100%;
+}
+body{
+    background: #00ffff;
+}
+#poemBgImgBox{
+    width: 500px;
+    height: 500px;
+}
+#poemBgImgBox #poemBgImg{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+#audioRange{
+    width: 400px;
+    height: 30px;
+    background:#000;
+    position: relative;
+    left: 30px;
+    top: 30px;
+}
+#rangeButton{
+    width: 20px;
+    height: 50px;
+    background-color: red;
+    position: absolute;
+    display: block;
+    top: -10px;
+    left: -10px;
+}
