@@ -37,12 +37,21 @@
                 el.attachEvent(eventType, hanlder);
             }
         }
-        on(document.body,"pointerdown", function (event) {
-            document.body.innerHTML += "down" + Date.now() + "<br/>";
-        })
-        on(document.body,"touchmove", function (event) {
-            document.body.innerHTML += "move" + Date.now() + "<br/>";
-        })
+        // on(document.body,"pointerdown", function (event) {
+        //     document.body.innerHTML += "down" + Date.now() + "<br/>";
+        // })
+        // on(document.body,"touchmove", function (event) {
+        //     document.body.innerHTML += "move" + Date.now() + "<br/>";
+        // })
+        on(document.body,"mousedown",function(event){console.log(event.type)});
+        on(document.body,"mousemove",function(event){console.log(event.type)});
+        on(document.body,"mouseup",function(event){console.log(event.type)});
+        on(document.body,"touchstart",function(event){console.log(event.type)});
+        on(document.body,"touchmove",function(event){console.log(event.type)});
+        on(document.body,"touchend",function(event){console.log(event.type)});
+        on(document.body,"click",function(event){console.log(event.type)});
+
+
     </script>
 </body>
 
