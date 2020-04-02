@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>测试用html</title>
+    <script src="https://cdn.bootcss.com/vConsole/3.3.4/vconsole.min.js"></script>
     <style>
         html,body{
             width: 100%;
@@ -14,8 +15,13 @@
 </head>
 <body>
     <script>
-        document.body.addEventListener("click",() => {
-            alert("触发点击");
+        new vConsole();
+        document.body.addEventListener("touchstart",function(){
+            console.log("touchstart事件")
+            window.DeviceOrientationEvent.requestPermission()
+            .then(state => {
+                console.log("touchstart事件内申请陀螺仪")
+            })
         })
     </script>
 </body>
