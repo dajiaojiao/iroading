@@ -16,11 +16,11 @@
 <body>
     <script>
         new VConsole();
-        document.body.addEventListener("touchstart",function(){
-            console.log("touchstart事件")
+        document.body.addEventListener("mouseup",function(){
+            console.log("mouseup事件")
             window.DeviceOrientationEvent.requestPermission()
             .then(state => {
-                console.log("touchstart事件内申请陀螺仪")
+                console.log("mouseup事件内申请陀螺仪")
             })
         })
     </script>
