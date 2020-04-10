@@ -1,0 +1,42 @@
+[
+    {
+        "schoolId": 1099001,
+        "axisY": 25.040797,
+        "axisX": 121.573737,
+        "schoolName": "翁源县教育局教学研究室",
+        "appInfoCount": 19,
+        "page": 11
+    },
+    {
+        "schoolId": 1045003,
+        "axisY": 24.997217,
+        "axisX": 121.312461,
+        "schoolName": "阡陌路实验学校",
+        "appInfoCount": 2217,
+        "page": 12
+    },
+    {
+        "schoolId": 250949,
+        "axisY": 24.997217,
+        "axisX": 121.312461,
+        "schoolName": "河北省学乐实验学校",
+        "appInfoCount": 17115,
+        "page": 12
+    },
+    {
+        "schoolId": 1096002,
+        "axisY": 25.040797,
+        "axisX": 121.573737,
+        "schoolName": "旺苍县水磨乡中心小学校",
+        "appInfoCount": 19166,
+        "page": 12
+    },
+    {
+        "schoolId": 261947,
+        "axisY": 24.997217,
+        "axisX": 121.312461,
+        "schoolName": "浙江省学乐实验学校",
+        "appInfoCount": 59772,
+        "page": 12
+    }
+]
