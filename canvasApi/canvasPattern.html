@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="utf-8">
+	<title>Canvas画图基础-渐变圆环</title>
+</head>
+<body>
+	<canvas id="canvas" width="300" height="300" ></canvas>
+	<canvas id="canvas1" width="300" height="300" ></canvas>
+    <canvas id="canvas2" width="1000" height="1000" ></canvas>
+    <img src="../images/bg.jpg" style="position:absolute;left:100px;top:100px;">
+</body>
+
+<style type="text/css">
+	body {background-color: #ccc;}
+</style>
+<!-- <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.js"></script> -->
+
+
+<script type="text/javascript">
+	var canvas = document.getElementById("canvas2");
+	var ctx2 = canvas.getContext('2d');
+	ctx2.lineWidth = 8;
+	ctx2.lineCap="round";
+
+    var img;
+
+    img = new Image();
+    img.src = "../images/bg.jpg";
+    // img.width = 150;
+    // img.height = 150;
+
+
+    if (img.complete) {
+       setImageFill();
+    } else {
+       img.onload = setImageFill;
+    }
+
+    var newFill = null;
+    function setImageFill() {
+        // var bg = $('<canvas>')[0];
+
+        // var size = 100;
+        // bg.width = size;
+        // bg.height = size;
+        // bg.getContext('2d').drawImage(img, 0, 0, size, size);
+    	newFill = ctx2.createPattern(img, 'repeat');
+    	drawNew(ctx2, 0);
+    }
+
+    function drawNew(ctx, x) {
+        ctx.clearRect(0, 0, 1000, 1000);
+        ctx.beginPath();
+        ctx.fillStyle = "#000";
+        ctx.fillRect(0,0,1000,1000);
+        // ctx.arc(350, 350, 50, 0, Math.PI*2, false);
+        // ctx.stroke();
+        ctx.fillStyle = newFill;
+        ctx.fillRect(300,300,300,300);
+    }
+	
+</script>
+
+</html>

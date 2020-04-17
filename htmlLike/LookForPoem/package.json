@@ -1,0 +1,15 @@
+{
+  "name": "lookforpoem",
+  "version": "1.0.0",
+  "description": "拾词，专为文字爱好者而生，短文字",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dajiaojiao/iroading/tree/master/htmlLike/LookForPoem"
+  },
+  "author": "流氓姐姐",
+  "license": "ISC"
+}

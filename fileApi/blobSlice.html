@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BlobSlice</title>
+</head>
+
+<body>
+    <script>
+        function strToBlob(str) {
+            var i, l, d, array;
+            d = str;
+            l = d.length;
+            array = new Uint8Array(l);
+            for (var i = 0; i < l; i++) {
+                array[i] = d.charCodeAt(i);
+            }
+            var b = new Blob([array], { type: 'text/plain' });
+            return b;
+        };
+        function readBlobStr(blob) {
+            var reader = new FileReader();
+            reader.onload = function () {
+                console.log(this.result);
+            }
+            reader.readAsText(blob);
+        }
+        function readBlobBinary(blob) {
+            var reader = new FileReader();
+            var promise = new Promise((resolve, reject) => {
+                reader.onload = function () {
+                    resolve(this.result);
+                }
+            })
+            reader.readAsBinaryString(blob);
+            return promise;
+        }
+       
+        async function handleBlob(blob) {
+            var size = blob.size;
+            var file1 = blob.slice(0, size / 2, "text/plain");
+            var file2 = blob.slice(size / 2, size + 1, "text/plain");
+            //发送；
+            var file1Str = await readBlobBinary(file1);
+            var file2Str = await readBlobBinary(file2);
+            // 接收
+            var file1Bob = strToBlob(file1Str);
+            var file2Blob = strToBlob(file2Str);
+            var fileEnd = new Blob([file1Bob, file2Blob], {
+                type: 'text/plain'
+            })
+
+
+            readBlobStr(file1Bob);//哈哈，看看切割行不�
+            readBlobStr(file2Blob);//��，哈哈哈大大大，的
+            readBlobStr(fileEnd);//哈哈，看看切割行不行，哈哈哈大大大，的
+        }
+
+        var file = new Blob(["哈哈，看看切割行不行，哈哈哈大大大，的"], {
+            type: 'text/plain'
+        });
+        handleBlob(file);
+
+    </script>
+</body>
+
+</html>

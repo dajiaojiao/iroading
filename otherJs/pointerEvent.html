@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            touch-action: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background: #0ff;
+            user-select: none;
+            overflow: hidden;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+    <title>PointerEvent</title>
+</head>
+
+<body>
+    <h1>sss</h1>
+    <script>
+        function on(el, eventType, hanlder) {
+            if (el.addEventListener) {                // 主流浏览器
+                el.addEventListener(eventType, hanlder, { passive: false });
+            } else if (el.attachEvent) {             // IE8及早期版本
+                el.attachEvent(eventType, hanlder);
+            }
+        }
+        // on(document.body,"pointerdown", function (event) {
+        //     document.body.innerHTML += "down" + Date.now() + "<br/>";
+        // })
+        // on(document.body,"touchmove", function (event) {
+        //     document.body.innerHTML += "move" + Date.now() + "<br/>";
+        // })
+        on(document.body,"mousedown",function(event){console.log(event.type)});
+        on(document.body,"mousemove",function(event){console.log(event.type)});
+        on(document.body,"mouseup",function(event){console.log(event.type)});
+        on(document.body,"touchstart",function(event){console.log(event.type)});
+        on(document.body,"touchmove",function(event){console.log(event.type)});
+        on(document.body,"touchend",function(event){console.log(event.type)});
+        on(document.body,"click",function(event){console.log(event.type)});
+
+
+    </script>
+</body>
+
+</html>

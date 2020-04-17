@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>toDataUrl</title>
+</head>
+
+<body style="background: #000;">
+    <canvas id="mainCanvas" width="500" height="500"></canvas>
+    <img id="showUrl" src="" alt="">
+    <p>结论：使用canvas压缩图片，单独调整尺寸后体积会下降，单独调整toDataURL  质量参数时，体积也会下降（图片会模糊）；同时调整尺寸和质量参数，图片依然会模糊</p>
+    <script>
+        var canvas = document.querySelector("#mainCanvas");
+        var img = document.querySelector("#showUrl");
+        var ctx = canvas.getContext("2d");
+        var imgLoad = new Image();
+        imgLoad.onload = function () {
+            ctx.drawImage(imgLoad, 0, 0);
+            var base64 = canvas.toDataURL("image/jpeg",.5);
+            img.setAttribute("src", base64);
+
+
+            var bytes = window.atob(base64.split(',')[1]);        //去掉url的头，并转换为byte  
+
+            //处理异常,将ascii码小于0的转换为大于0  
+            var ab = new ArrayBuffer(bytes.length);
+            var ia = new Uint8Array(ab);
+            for (var i = 0; i < bytes.length; i++) {
+                ia[i] = bytes.charCodeAt(i);
+            }
+            let file = new File([ia], {
+                type: 'image/jpg',
+            });
+            console.log(file,file.size / 1024);
+
+            // const blobUrl = URL.createObjectURL(file);
+            // var a = document.createElement("a");
+            // a.setAttribute("download","dd.jpg");
+            // a.setAttribute("href",blobUrl)
+            // a.click();
+        }
+        imgLoad.src = "./images/test.jpg";//71k
+
+        
+    </script>
+</body>
+
+</html>
