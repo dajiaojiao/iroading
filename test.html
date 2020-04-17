@@ -16,6 +16,15 @@
 <body>
     <input type="text" id="text">
     <script>
+         /*
+                结论：
+                输入中文时会触发compositionstart，input，compositionend事件（最低测的谷歌浏览器50版本）；
+                输入非中文时 不会触发compositionstart，compositionend事件;
+                输入中文时在input事件中：
+             *      低版本浏览器，selectionStart和selectionEnd不同，最少差1，不存在isComposing参数，且compositionend事件后还会触发一次input事件，value为最终的中文；
+                    高版本浏览器 selectionStart和selectionEnd相同，但是事件对象e上存在isComposing字段输入中文时为true，输入其他时为false，
+                    且存在inputType字段，值为"insertCompositionText","insertText","deleteContentBackward","deleteContentForward","insertFromPaste"等
+            */
         const text = document.querySelector("#text");
         text.addEventListener("input",function(e){
             // let value = text.value;
@@ -24,7 +33,9 @@
             //     value = value.replace(/[^\u4e00-\u9fa5]/g,"");
             //     text.value = value;
             // }
-            console.log("input",e);
+            console.log("input",text.selectionStart,text.selectionEnd,text.value,e);
+           
+            
         });
         text.addEventListener("compositionstart",function(e){
             console.log("compostionstart",e)
@@ -40,6 +51,7 @@
         //         console.log("mouseup事件内申请陀螺仪")
         //     })
         // })
+        document.addEventListener("paste",function(e){console.log(e,e.clipboardData.getData('text/plain'))});
     </script>
 </body>
 </html>
