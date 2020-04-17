@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="text">
+    <script>
+        const text = document.querySelector("#text");
+        text.addEventListener("input",function(e){
+            // let value = text.value;
+            // if(/[^\u4e00-\u9fa5]+/.test(value)){
+            //     console.log(value);
+            //     value = value.replace(/[^\u4e00-\u9fa5]/g,"");
+            //     text.value = value;
+            // }
+            console.log("input",e);
+        });
+        text.addEventListener("compositionstart",function(e){
+            console.log("compostionstart",e)
+        })
+        text.addEventListener("compositionend",function(e){
+            console.log("compositionend",e)
+        })
+    </script>
+</body>
+</html>
