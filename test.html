@@ -1,48 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.bootcss.com/vConsole/3.3.4/vconsole.min.js"></script>
     <title>测试用html3</title>
     <style>
-        html,body{
+        html,
+        body {
             width: 100%;
             height: 100%;
             background: #00ffff;
         }
     </style>
 </head>
+
 <body>
     <input type="text" id="text">
+    <div id="testSvg" style="width: 100px;height:100px;margin-top:10px" alt=""></div>
     <script>
-         /*
-                结论：
-                输入中文时会触发compositionstart，input，compositionend事件（最低测的谷歌浏览器50版本）；
-                输入非中文时 不会触发compositionstart，compositionend事件;
-                输入中文时在input事件中：
-             *      低版本浏览器:selectionStart和selectionEnd不同，最少差1，不存在isComposing参数，且compositionend事件后还会触发一次input事件，value为最终的中文；
-                    高版本浏览器:selectionStart和selectionEnd相同，但是事件对象e上存在isComposing字段输入中文时为true，输入其他时为false，
-                    且存在inputType字段，值为"insertCompositionText","insertText","deleteContentBackward","deleteContentForward","insertFromPaste"等
-            */
-        const text = document.querySelector("#text");
-        text.addEventListener("input",function(e){
-            // let value = text.value;
-            // if(/[^\u4e00-\u9fa5]+/.test(value)){
-            //     console.log(value);
-            //     value = value.replace(/[^\u4e00-\u9fa5]/g,"");
-            //     text.value = value;
-            // }
-            console.log("input",text.selectionStart,text.selectionEnd,text.value,e);
-           
-            
-        });
-        text.addEventListener("compositionstart",function(e){
-            console.log("compostionstart",e)
-        })
-        text.addEventListener("compositionend",function(e){
-            console.log("compositionend",e)
-        })
+        /*
+               结论：
+               输入中文时会触发compositionstart，input，compositionend事件（最低测的谷歌浏览器50版本）；
+               输入非中文时 不会触发compositionstart，compositionend事件;
+               输入中文时在input事件中：
+            *      低版本浏览器:selectionStart和selectionEnd不同，最少差1，不存在isComposing参数，且compositionend事件后还会触发一次input事件，value为最终的中文；
+                   高版本浏览器:selectionStart和selectionEnd相同，但是事件对象e上存在isComposing字段输入中文时为true，输入其他时为false，
+                   且存在inputType字段，值为"insertCompositionText","insertText","deleteContentBackward","deleteContentForward","insertFromPaste"等
+           */
+        // const text = document.querySelector("#text");
+        // text.addEventListener("input",function(e){
+        // let value = text.value;
+        // if(/[^\u4e00-\u9fa5]+/.test(value)){
+        //     console.log(value);
+        //     value = value.replace(/[^\u4e00-\u9fa5]/g,"");
+        //     text.value = value;
+        // }
+        // console.log("input",text.selectionStart,text.selectionEnd,text.value,e);
+
+
+        // });
+        // text.addEventListener("compositionstart",function(e){
+        //     console.log("compostionstart",e)
+        // })
+        // text.addEventListener("compositionend",function(e){
+        //     console.log("compositionend",e)
+        // })
+
+        //测试vconsole
         // new VConsole();
         // document.body.addEventListener("mouseup",function(){
         //     console.log("mouseup事件")
@@ -51,7 +57,52 @@
         //         console.log("mouseup事件内申请陀螺仪")
         //     })
         // })
-        document.addEventListener("paste",function(e){console.log(e,e.clipboardData.getData('text/plain'))});
+        // document.addEventListener("paste",function(e){console.log(e,e.clipboardData.getData('text/plain'))});
+
+        // svg转base64
+        function tinWordFormatSvg(option) {
+            const defaultOption = {
+                border: {
+                    weight: 2,
+                    color: "#000",
+                    dasharray: [0]
+                },
+                crossLine: [{
+                    weight: 2,
+                    color: "#000",
+                    dasharray: [0],
+                },
+                {
+                    weight: 2,
+                    color: "#000",
+                    dasharray: [0],
+                }],
+                backgroundColor: "rgba(0,0,0,0)"
+            };
+            option = Object.assign({}, defaultOption, option);
+            let svghtml = `<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100">
+                        <rect x="${option.border.weight / 2}" y="${option.border.weight / 2}" width="${100-option.border.weight}" height="${100-option.border.weight}" stroke-width="${option.border.weight}" stroke="${option.border.color}" fill="${option.backgroundColor}" stroke-dasharray="${option.border.dasharray.toString()}"/>
+                        ${option.crossLine[0] ? `<line x1="0" y1="50" x2="100" y2="50" stroke="${option.crossLine[0].color}" stroke-width="${option.crossLine[0].weight}" stroke-dasharray="${option.crossLine[0].dasharray}"/>` : ``}
+                        ${option.crossLine[1] ? `<line x1="50" y1="0" x2="50" y2="100" stroke="${option.crossLine[1].color}" stroke-width="${option.crossLine[1].weight}" stroke-dasharray="${option.crossLine[1].dasharray}"/>` : ``}
+                        ${option.crossLine[2] ? `<line x1="0" y1="0" x2="100" y2="100" stroke="${option.crossLine[2].color}" stroke-width="${option.crossLine[2].weight}" stroke-dasharray="${option.crossLine[2].dasharray}"/>` : ``}
+                        ${option.crossLine[3] ? `<line x1="100" y1="0" x2="0" y2="100" stroke="${option.crossLine[3].color}" stroke-width="${option.crossLine[3].weight}" stroke-dasharray="${option.crossLine[3].dasharray}"/>` : ``}
+                    </svg>
+                    `
+            return svghtml;
+        }
+        function tinWordFormatBase64(option) {
+            let svghtml = tinWordFormatSvg(option);
+            let base64 = `data:image/svg+xml;base64,${window.btoa(unescape(encodeURIComponent(svghtml)))}`;
+            return base64;
+        }
+        function getThreeLines() {
+            const imgsrc = tinWordFormatBase64();
+            document.querySelector("#testSvg").style.cssText += `background:url(${imgsrc}) no-repeat center/contain`;
+        }
+        getThreeLines()
+
+
     </script>
 </body>
+
 </html>
