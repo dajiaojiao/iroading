@@ -18,84 +18,146 @@
         /* 汉字列表元素start */
         .chineseListBox {}
 
-        .chineseListBox .chineseTip {
-            
+        .chineseListBox .chineseTip {}
 
-        }
+        .chineseListBox .chineseList {}
 
-        .chineseListBox .chineseList {
-           
-        }
+        .chineseListBox .chineseList .clearfix {}
 
-        .chineseListBox .chineseList .clearfix {
-            
-        }
+        .chineseListBox .chineseList .chineseWord {}
 
-        .chineseListBox .chineseList .chineseWord {
-           
-        }
+        .chineseListBox .chineseList .chineseWord .lineSpectrumBox {}
 
-        .chineseListBox .chineseList .chineseWord .lineSpectrumBox {
-           
-        }
+        .chineseListBox .chineseList .chineseWord .lineSpectrumBox .lineSpectrum {}
 
-        .chineseListBox .chineseList .chineseWord .lineSpectrumBox .lineSpectrum {
-           
+        .chineseListBox .chineseList .chineseWord .lineSpectrumBox .pinyinHorn {}
 
-        }
+        .chineseListBox .chineseList .chineseWord .lineSpectrumBox .pinyinSwitch {}
 
-        .chineseListBox .chineseList .chineseWord .lineSpectrumBox .pinyinHorn {
-           
-        }
-
-        .chineseListBox .chineseList .chineseWord .lineSpectrumBox .pinyinSwitch {
-           
-        }
-
-        .chineseListBox .chineseList .chineseWord .pinyinList {
-            
-        }
+        .chineseListBox .chineseList .chineseWord .pinyinList {}
 
         .chineseListBox .chineseList .chineseWord .pinyinList.show {
             display: block;
         }
 
-        .chineseListBox .chineseList .chineseWord .pinyinList .pinyin {
-            
-        }
+        .chineseListBox .chineseList .chineseWord .pinyinList .pinyin {}
 
         .chineseListBox .chineseList .chineseWord .pinyinList .pinyin:hover {
             background: rgba(34, 138, 255, .2);
         }
 
-        .chineseListBox .chineseList .chineseWord .tinWordBox {
-            
-        }
+        .chineseListBox .chineseList .chineseWord .tinWordBox {}
 
         /* 汉字列表元素end */
+        /*汉字详情start*/
+        .chineseWordInfo {
+            width: 540px;
+            height: 304px;
+            background: rgba(255, 255, 255, 1);
+            position: relative;
+            padding-top: 48px;
+        }
+
+        .chineseWordInfo .closeWordInfo {
+            color: #000;
+            font-size: 30px;
+            width: 52px;
+            height: 52px;
+            line-height: 52px;
+            text-align: center;
+            font-weight: 600;
+            transform: rotate(45deg);
+            position: absolute;
+            right: 0;
+            top: 0;
+            cursor: pointer;
+        }
+        .chineseWordInfo .pinyinList .pinyin:hover {
+            background: rgba(34, 138, 255, .2);
+        }
+
+        .chineseWordInfo .chineseWord .wordInfo {}
+
+        /* 汉字详情end */
 
     </style>
 </head>
 
 <body>
-    <div class="chineseListBox" style="background: #fff;padding: 20px; display: inline-block; position: absolute;left: 500px;top: 500px;z-index: 2000;">
-        <p class="chineseTip" style="color: #999999;font-size: 14px;padding: 0;margin: 0;width: 100%;margin-bottom: 24px;">点击输入文字，空格键加空格，回车换行</p>
-        <ul class="chineseList" id="chineseList" style=" list-style: none;margin: 0;padding: 0;">
-            <li class="chineseWord" style=" margin: 0; padding: 16px 12px 20px; float: left;list-style: none; position: relative;">
+    <div class="chineseListBox"
+        style="background: #fff;padding: 20px; display: inline-block; position: absolute;left: 500px;top: 500px;z-index: 2000;display: none;">
+        <p class="chineseTip"
+            style="color: #999999;font-size: 14px;padding: 0;margin: 0;width: 100%;margin-bottom: 24px;">
+            点击输入文字，空格键加空格，回车换行</p>
+        <ul class="chineseList" style=" list-style: none;margin: 0;padding: 0;">
+            <li class="chineseWord"
+                style=" margin: 0; padding: 16px 12px 20px; float: left;list-style: none; position: relative;">
                 <div class="lineSpectrumBox" style=" width: 100px; height: 38px;position: relative;">
-                    <div class="lineSpectrum" style=" width: 100%;height: 100%;text-align: center;line-height: 38px;font-family: 'Microsoft YaHei', Arial, Helvetica, sans-serif;">hǎo</div>
-                    <span class="pinyinHorn" style=" width: 20px;height: 20px;background: blue;position: absolute;right: 0;top: -10px;"></span>
-                    <span class="pinyinSwitch" style=" width: 20px; height: 20px; background: yellow;position: absolute;right: 0;bottom: 0;"></span>
+                    <div class="lineSpectrum"
+                        style=" width: 100%;height: 100%;text-align: center;line-height: 38px;font-family: 'Microsoft YaHei', Arial, Helvetica, sans-serif;">
+                        hǎo</div>
+                    <span class="pinyinHorn"
+                        style=" width: 20px;height: 20px;background: blue;position: absolute;right: 0;top: -10px;"></span>
+                    <span class="pinyinSwitch"
+                        style=" width: 20px; height: 20px; background: yellow;position: absolute;right: 0;bottom: 0;"></span>
                 </div>
-                <ul class="pinyinList" style="padding: 0; margin: 0;list-style: none;position: absolute;box-shadow: 3px 4px 10px 0px rgba(0, 0, 0, 0.16);background: #fff;position: absolute;left: 12px;top: 0;display: none;">
-                    <li class="pinyin" style="padding: 0;margin: 0;width: 100px;height: 38px;line-height: 38px;cursor: pointer;text-align: center;font-family: 'Microsoft YaHei', Arial, Helvetica, sans-serif;">hǎo</li>
-                    <li class="pinyin" style="padding: 0;margin: 0;width: 100px;height: 38px;line-height: 38px;cursor: pointer;text-align: center;font-family: 'Microsoft YaHei', Arial, Helvetica, sans-serif;">hǎo</li>
+                <ul class="pinyinList"
+                    style="max-height: 152px;overflow: auto;padding: 0; margin: 0;list-style: none;position: absolute;box-shadow: 3px 4px 10px 0px rgba(0, 0, 0, 0.16);background: #fff;position: absolute;left: 12px;top: 0;display: none;">
+                    <li class="pinyin"
+                        style="padding: 0;margin: 0;width: 100px;height: 38px;line-height: 38px;cursor: pointer;text-align: center;font-family: 'Microsoft YaHei', Arial, Helvetica, sans-serif;">
+                        hǎo</li>
+                    <li class="pinyin"
+                        style="padding: 0;margin: 0;width: 100px;height: 38px;line-height: 38px;cursor: pointer;text-align: center;font-family: 'Microsoft YaHei', Arial, Helvetica, sans-serif;">
+                        hǎo</li>
                 </ul>
                 <div class="tinWordBox" style="width: 100px;height: 100px;margin-top: 4px;background: #0ff;">哈</div>
             </li>
-            
+
             <span class="clearfix" style="width: 0;height: 0;display: block;clear: both;visibility: hidden;"></span>
         </ul>
+    </div>
+
+    <div class="chineseWordInfo">
+        <span class="closeWordInfo">+</span>
+        <ul class="wordInfo" style="margin: 0;padding: 0;float:left;width: 123px;height:200px;list-style: none;font-size: 18px;color: #666666;padding-left: 47px;margin-top: 74px;display: flex;flex-direction: column;justify-content: center;">
+            <li style="list-style: none;margin-bottom: 24px;"><span>发音：</span><span></span></li>
+            <li style="list-style: none;margin-bottom: 24px;"><span>部首：</span><span>女</span></li>
+            <li style="list-style: none;"><span>笔画：</span><span>8</span></li>
+        </ul>
+
+        <ul class="chineseList" style="float: left; list-style: none;margin: 0;padding: 0;">
+            <li class="chineseWord"
+                style=" margin: 0; padding: 16px 12px 20px; float: left;list-style: none; position: relative;">
+                <div class="lineSpectrumBox" style=" width: 120px; height: 56px;position: relative;">
+                    <div class="lineSpectrum"
+                        style=" width: 100%;height: 100%;text-align: center;line-height: 38px;font-family: 'Microsoft YaHei', Arial, Helvetica, sans-serif;">
+                        hǎo</div>
+                    <span class="pinyinHorn"
+                        style=" width: 20px;height: 20px;background: blue;position: absolute;right: 0;top: -10px;"></span>
+                    <span class="pinyinSwitch"
+                        style=" width: 20px; height: 20px; background: yellow;position: absolute;right: 0;bottom: 0;"></span>
+                </div>
+                <ul class="pinyinList"
+                    style="max-height: 152px; overflow: auto;padding: 0; margin: 0;list-style: none;position: absolute;box-shadow: 3px 4px 10px 0px rgba(0, 0, 0, 0.16);background: #fff;position: absolute;left: 12px;top: 0;display: none;">
+                    <li class="pinyin"
+                        style="padding: 0;margin: 0;width: 100px;height: 38px;line-height: 38px;cursor: pointer;text-align: center;font-family: 'Microsoft YaHei', Arial, Helvetica, sans-serif;">
+                        hǎo</li>
+                    <li class="pinyin"
+                        style="padding: 0;margin: 0;width: 100px;height: 38px;line-height: 38px;cursor: pointer;text-align: center;font-family: 'Microsoft YaHei', Arial, Helvetica, sans-serif;">
+                        hǎo</li>
+                </ul>
+                <div class="tinWordBox" style="width: 200px;height: 200px;margin-top: 4px;background: #0ff;">哈</div>
+            </li>
+
+            <span class="clearfix" style="width: 0;height: 0;display: block;clear: both;visibility: hidden;"></span>
+        </ul>
+
+
+        <ul style="list-style: none;float: left;margin: 0;padding: 0;margin-left: 40px;height: 200px;display: flex;flex-direction: column;justify-content: center;margin-top: 74px;">
+            <li style="list-style:none;border:1px solid rgba(34, 138, 255, 0.5);border-radius: 2px;width: 80px;height: 36px;font-size: 16px;color: #717478;line-height: 36px;text-align: center;margin-bottom: 20px; cursor: pointer;">连续</li>
+            <li style="list-style:none;border:1px solid rgba(34, 138, 255, 0.5);border-radius: 2px;width: 80px;height: 36px;font-size: 16px;color: #717478;line-height: 36px;text-align: center;cursor: pointer;">分步</li>
+        </ul>
+        <div style="background: #ff0;position: absolute;right: 0;bottom: 0;width: 62px;height: 62px;"></div>
     </div>
 </body>
 
