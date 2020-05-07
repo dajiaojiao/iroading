@@ -29,24 +29,32 @@
                    高版本浏览器:selectionStart和selectionEnd相同，但是事件对象e上存在isComposing字段输入中文时为true，输入其他时为false，
                    且存在inputType字段，值为"insertCompositionText","insertText","deleteContentBackward","deleteContentForward","insertFromPaste"等
            */
-        // const text = document.querySelector("#text");
-        // text.addEventListener("input",function(e){
+        const text = document.querySelector("#text");
+        let pre = text.selectionStart;
+        text.addEventListener("input",function(e){
         // let value = text.value;
         // if(/[^\u4e00-\u9fa5]+/.test(value)){
         //     console.log(value);
         //     value = value.replace(/[^\u4e00-\u9fa5]/g,"");
         //     text.value = value;
         // }
-        // console.log("input",text.selectionStart,text.selectionEnd,text.value,e);
+        console.log("input",text.selectionStart,text.selectionEnd,text.value,e);
+        console.log("preSelectionStart",pre);
+        pre = this.selectionStart;
 
-
-        // });
-        // text.addEventListener("compositionstart",function(e){
-        //     console.log("compostionstart",e)
-        // })
-        // text.addEventListener("compositionend",function(e){
-        //     console.log("compositionend",e)
-        // })
+        });
+        text.addEventListener("compositionstart",function(e){
+            console.log("compostionstart",e)
+        })
+        text.addEventListener("compositionend",function(e){
+            console.log("compositionend",e)
+        })
+        text.onkeyup = (e) => {
+            // console.log("keyup",e.keyCode);
+        }
+        text.onkeydown = (e) => {
+            // console.log("keydown",e.keyCode);
+        }
 
         //测试vconsole
         // new VConsole();
@@ -59,47 +67,7 @@
         // })
         // document.addEventListener("paste",function(e){console.log(e,e.clipboardData.getData('text/plain'))});
 
-        // svg转base64
-        function tinWordFormatSvg(option) {
-            const defaultOption = {
-                border: {
-                    weight: 2,
-                    color: "#000",
-                    dasharray: [0]
-                },
-                crossLine: [{
-                    weight: 2,
-                    color: "#000",
-                    dasharray: [0],
-                },
-                {
-                    weight: 2,
-                    color: "#000",
-                    dasharray: [0],
-                }],
-                backgroundColor: "rgba(0,0,0,0)"
-            };
-            option = Object.assign({}, defaultOption, option);
-            let svghtml = `<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100">
-                        <rect x="${option.border.weight / 2}" y="${option.border.weight / 2}" width="${100-option.border.weight}" height="${100-option.border.weight}" stroke-width="${option.border.weight}" stroke="${option.border.color}" fill="${option.backgroundColor}" stroke-dasharray="${option.border.dasharray.toString()}"/>
-                        ${option.crossLine[0] ? `<line x1="0" y1="50" x2="100" y2="50" stroke="${option.crossLine[0].color}" stroke-width="${option.crossLine[0].weight}" stroke-dasharray="${option.crossLine[0].dasharray}"/>` : ``}
-                        ${option.crossLine[1] ? `<line x1="50" y1="0" x2="50" y2="100" stroke="${option.crossLine[1].color}" stroke-width="${option.crossLine[1].weight}" stroke-dasharray="${option.crossLine[1].dasharray}"/>` : ``}
-                        ${option.crossLine[2] ? `<line x1="0" y1="0" x2="100" y2="100" stroke="${option.crossLine[2].color}" stroke-width="${option.crossLine[2].weight}" stroke-dasharray="${option.crossLine[2].dasharray}"/>` : ``}
-                        ${option.crossLine[3] ? `<line x1="100" y1="0" x2="0" y2="100" stroke="${option.crossLine[3].color}" stroke-width="${option.crossLine[3].weight}" stroke-dasharray="${option.crossLine[3].dasharray}"/>` : ``}
-                    </svg>
-                    `
-            return svghtml;
-        }
-        function tinWordFormatBase64(option) {
-            let svghtml = tinWordFormatSvg(option);
-            let base64 = `data:image/svg+xml;base64,${window.btoa(unescape(encodeURIComponent(svghtml)))}`;
-            return base64;
-        }
-        function getThreeLines() {
-            const imgsrc = tinWordFormatBase64();
-            document.querySelector("#testSvg").style.cssText += `background:url(${imgsrc}) no-repeat center/contain`;
-        }
-        getThreeLines()
+        
 
 
     </script>
