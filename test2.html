@@ -10,19 +10,23 @@
             height: 100%;
             background: #0ff;
         }
+        @font-face {
+            font-family: pinyin;
+            src: url('./font/Pinyinok.ttf') format('truetype');
+        }
+        .pinyinText{
+            font-size: 30px;
+            color: red;
+            font-family: pinyin;
+        }
     </style>
 </head>
 <body>
+    <p class="pinyinText">abcefhdīng</p>
+    <p class="pinyinText">gǎia</p>
+    
     <script>
-        document.body.addEventListener("mousedown",function(){
-            console.log("mousedown");
-        });
-        document.body.addEventListener("mousemove",function(){
-            console.log("mousemove");
-        });
-        document.body.addEventListener("mouseup",function(){
-            console.log("mouseup");
-        })
+        
     </script>
 </body>
 </html>
