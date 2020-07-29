@@ -1,21 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>2222222222222222222</title>
     <style>
-        html,body{
+        html,
+        body {
             width: 100%;
             height: 100%;
         }
-        
     </style>
 </head>
+
 <body>
-    <a href="./index.html"><h1>11111111111111111111111111</h1></a>
+    <a href="./index.html">
+        <h1>11111111111111111111111111</h1>
+    </a>
     <iframe src="./test.html" frameborder="0" style="width: 100%;height: 100%;"></iframe>
     <div style="width: 200px;height:200px;position:absolute;left:200px;top:200px;background:red;"></div>
+
+    <script>
+        "use strict";
+        let _resolve,callbacks = [];
+        callbacks.push(() => {
+            console.log(_resolve);
+        })
+        _resolve = 3;
+        callbacks.forEach(a => a());
+    </script>
 </body>
+
 </html>
