@@ -11,6 +11,18 @@
     <script>
         var inputfile = document.querySelector("#inputfile");
         inputfile.addEventListener("change",function(evt){console.dir(this.files)})
+
+        // ajax
+        const xhr = new XMLHttpRequest();
+        xhr.open("get","https://dl.xueleyun.com/files/dl/50d10eaeafeae77fb7a8006aa1f0f1a0.jpg?fname=qubaaaaa");
+        xhr.addEventListener("load",ev => {
+            if(xhr.status >= 200){
+                console.log("成功");
+                console.log(xhr.response);
+            }
+        })
+        xhr.send();
+
     </script>
 </body>
 </html>
