@@ -5,8 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
+<body style="background-color: #fff">
     <canvas id="canvas" width="600" height="300"></canvas>
-    <script src="./demos/2.js"></script>
+    <!-- <input type="number" id=input> -->
+    <!-- <select name="globalCompositeOperation" id="globalCompositeOperation">
+        <option value="source-atop">source-atop</option>
+        <option value="source-in">source-in</option>
+        <option value="source-out">source-out</option>
+        <option selected value="source-over">source-over</option>
+
+        <option value="destination-atop">destination-atop</option>
+        <option value="destination-in">destination-in</option>
+        <option value="destination-out">destination-out</option>
+        <option value="destination-over">destination-over</option>
+
+        <option value="lighter">lighter</option>
+        <option value="copy">copy</option>
+        <option value="xor">xor</option>
+    </select> -->
+    <script>
+        const canvas = document.getElementById("canvas");
+        const context = canvas.getContext("2d");context.beginPath();
+    </script>
+    <script src="./demos/12.js"></script>
 </body>
 </html>
