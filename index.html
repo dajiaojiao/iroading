@@ -8,10 +8,24 @@
 </head>
 <body>
     <div>
-        <img id="img1" src=""/>
-        <a href="./index2.html"><h1>222222222222222222222222222222222</h1></a>
+        <!-- <img id="img1" src=""/> -->
+        <iframe id="index2" src="./index2.html"></iframe>
+        <iframe id="index3" src="./index2.html"></iframe>
+
     </div>
-    <script src="/installServiceWorker.js"></script>
-    
+    <!-- <script src="/installServiceWorker.js"></script> -->
+
+    <script>
+        const index2 = document.getElementById("index2");
+        const index3 = document.getElementById("index3");
+        setTimeout(function(){
+            // index2.contentWindow.postMessage("hello ，from index","*");
+            index3.contentWindow.postMessage("hello ,from index3,","*")
+        },400);
+
+        window.addEventListener("message",function(event){
+            console.log("index页面",event)
+        })
+    </script>
 </body>
 </html>

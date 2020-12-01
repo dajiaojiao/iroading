@@ -19,7 +19,7 @@
     <a href="./index.html">
         <h1>11111111111111111111111111</h1>
     </a>
-    <iframe src="./test.html" frameborder="0" style="width: 100%;height: 100%;"></iframe>
+    <!-- <iframe src="./test.html" frameborder="0" style="width: 100%;height: 100%;"></iframe> -->
     <div style="width: 200px;height:200px;position:absolute;left:200px;top:200px;background:red;"></div>
 
     <script>
@@ -30,6 +30,10 @@
         })
         _resolve = 3;
         callbacks.forEach(a => a());
+
+        window.addEventListener("message",function(event){
+            console.log("index2",event)
+        })
     </script>
 </body>
 

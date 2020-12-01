@@ -38,22 +38,25 @@
         //     value = value.replace(/[^\u4e00-\u9fa5]/g,"");
         //     text.value = value;
         // }
-        console.log("input",text.selectionStart,text.selectionEnd,text.value,e);
-        console.log("preSelectionStart",pre);
+        // console.log("input",text.selectionStart,text.selectionEnd,text.value,e);
+        // console.log("preSelectionStart",pre);
         pre = this.selectionStart;
 
         });
         text.addEventListener("compositionstart",function(e){
-            console.log("compostionstart",e)
+            // console.log("compostionstart",e)
         })
         text.addEventListener("compositionend",function(e){
-            console.log("compositionend",e)
+            // console.log("compositionend",e)
         })
         text.onkeyup = (e) => {
-            // console.log("keyup",e.keyCode);
+            console.log("keyup",e.keyCode);
         }
         text.onkeydown = (e) => {
             console.log("keydown",e.keyCode);
+        }
+        text.onkeypress = (e) => {
+            console.log("keypress",e.keyCode);
         }
 
         //测试vconsole

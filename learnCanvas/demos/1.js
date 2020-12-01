@@ -1,5 +1,3 @@
-const canvas = document.getElementById("canvas");
-const context = canvas.getContext("2d");
 context.strokeStyle = "#000";
 context.fillStyle = "#000";
 const centerX = canvas.width / 2;
@@ -48,9 +46,10 @@ function drawPointerLine(){
     hour = hour <= 12 ? hour : hour - 12;
     const minute = date.getMinutes();
     const second = date.getSeconds();
+    const millisecond = date.getMilliseconds();
     drawHourLine(hour,minute,second);
     drawMinuteLine(minute,second);
-    drawSecondLine(second);
+    drawSecondLine(second,millisecond);
 }
 function drawHourLine(hour,minute,second){
     const secondSums = second + minute * 60 + hour * 60 * 60;
@@ -84,10 +83,10 @@ function drawMinuteLine(minute,second){
     context.restore();
 
 }
-function drawSecondLine(second){
-    const secondSums = second;
-    const secondOneHour = 60;
-    const degree = Math.PI * 2 * (secondSums / secondOneHour);
+function drawSecondLine(second,millisecond){
+    const milliSecondSums = second * 1000 + millisecond;
+    const secondOneMinute = 60 * 1000;
+    const degree = Math.PI * 2 * (milliSecondSums / secondOneMinute);
     
     const pointeX = centerX + secondLineLength * Math.cos(Math.PI / 2 - degree);
     const pointeY = centerY - secondLineLength * Math.sin(Math.PI / 2 - degree);
